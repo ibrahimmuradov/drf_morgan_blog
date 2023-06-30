@@ -1,0 +1,20 @@
+{% extends 'account-base.html' %}
+{% block body %}
+{% load static %}
+
+{{ block.super }}
+
+            <div class="content">
+                <div class="container">
+                    <div class="page-title">
+                        <h3>Account deleted successfully!</h3>
+                    </div>
+                    <div class="row gx-5">
+                        <div class="col-lg-4">
+                            Your account has been deleted!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}

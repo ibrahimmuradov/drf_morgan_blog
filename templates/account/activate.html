@@ -1,0 +1,55 @@
+{% load static %}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Şifrəni Yenilə</title>
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/auth.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="auth-content">
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="mb-4">
+                        <img class="brand" src="{% static 'assets/images/main-logo.png' %}" width="180" alt="bootstraper logo">
+                    </div>
+                    <h6 class="mb-4 text-muted">Şifrəni Yenilə</h6>
+                    <p class="text-muted text-start">E-poçt adresinizə göndərilən şifrəni daxil edin</p>
+                    <form method="post">
+						{% csrf_token %}
+                        <div class="mb-3 text-start">
+                            {{code_active.activation_code.label}}
+                            {{code_active.activation_code}}
+
+                            {% if code_active.activation_code.errors %}
+                                {% for error in code_active.activation_code.errors %}
+                                    <li style="color: red"> {{ error|escape }} </li>
+                                {% endfor %}
+                            {% endif %}
+
+                            {% if messages %}
+                                <ul class="messages">
+                                    {% for message in messages %}
+                                        <li style="color: red" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+
+                        </div>
+                        <button type="submit" class="btn btn-primary shadow-2 mb-4">Göndər</button>
+                    </form>
+                    <p class="mb-0 text-muted">Hesabınız yoxdur? <a href="/user/register/">Qeydiyyatdan Keçin</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+{% extends 'account-base.html' %}
+{% block body %}
+{% load static %}
+
+{{ block.super }}
+
+<style>
+.image-container {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+</style>
+
+            <div class="content">
+                <div class="container">
+                    <div class="page-title">
+                        <h3>Update info</h3>
+                    </div>
+                    <div class="row gx-5">
+                        <div class="col-lg-8">
+                            <form accept-charset="utf-8" method="POST" enctype="multipart/form-data">
+						        {% csrf_token %}
+                                <div class="mb-3">
+                                    {{ user_form.email.label }}
+                                    {{ user_form.email }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ user_form.username.label }}
+                                    {{ user_form.username }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ user_form.first_name.label }}
+                                    {{ user_form.first_name }}
+                                </div>
+
+                                 <div class="mb-3">
+                                    {{ user_form.about.label }}
+                                    {{ user_form.about }}
+                                </div>
+                                 <div class="mb-3">
+                                    {{ user_form.profile_photo.label }}
+                                    {{ user_form.profile_photo }}
+                                </div>
+                                <div class="row">
+                                    <div class="col-3 mb-3">
+                                        <button type="submit" class="btn btn-success"> Update </button>
+                                        {% if user_form.is_valid %}
+                                            <p>Updated succesfully!</p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-3 mb-3">
+                                       <a href="/user/change-password/"> <input type="button" value="Change Password" class="btn btn-outline-primary"> </a>
+                                    </div>
+                                    <form method="POST">
+                                        <div class="col-1 mb-3">
+                                           <a href="{% url 'account:delete_user' %}"> <input type="button" value="Delete Account" class="btn btn-outline-danger"> </a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </form>
+                        </div>
+                    </div>`
+                </div>
+            </div>
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load static %}
+
+{{ block.super }}
+
+    <!-- page header -->
+    <section class="page-header">
+        <div class="container-xl">
+            <div class="text-center">
+                <h1 class="mt-0 mb-2">About</h1>
+            </div>
+        </div>
+    </section>
+
+	<!-- section main content -->
+	<section class="main-content">
+		<div class="container-xl">
+
+			<div class="row gy-4">
+
+				<div class="col-lg-8">
+
+                    <div class="page-content bordered rounded padding-30">
+
+                        <img src="{% static 'assets/images/other/about.jpg' %}" alt="Morgan George" class="rounded mb-4" />
+
+                        <p>Hello, We are content writers about technology, science and general lifestyle. We share a new blog for you every day.</p>
+                        <p>Morgan Blog was established on March 26, 2023 to deliver new information to internet users, to make them more understandable and entertaining. You can access scientific articles, technology topics and more information on our website.</p>
+                        <p> With thousands of visitors per month, our Morgan Blog Website will continue to bring new information to people.</p>
+
+                        <hr class="my-4" />
+                        <ul class="social-icons list-unstyled list-inline mb-0">
+                            <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fab fa-medium"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        </ul>
+                        
+                    </div>
+
+                </div>
+				<div class="col-lg-4">
+
+					<!-- sidebar -->
+					<div class="sidebar">
+						<!-- widget about -->
+						<div class="widget rounded">
+							<div class="widget-about data-bg-image text-center" data-bg-image="{% static 'assets/images/map-bg.png' %}">
+								<img width="80" src="{% static 'assets/images/logo.png' %}" alt="logo" class="mb-4" />
+								<p class="mb-4">Hello, We are content writers about technology, science and general lifestyle. We share a new blog for you every day.</p>
+								<ul class="social-icons list-unstyled list-inline mb-0">
+									<li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+									<li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+									<li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+									<li class="list-inline-item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
+									<li class="list-inline-item"><a href="#"><i class="fab fa-medium"></i></a></li>
+									<li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
+								</ul>
+							</div>
+						</div>
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+	</section>
+
+{% endblock %}
