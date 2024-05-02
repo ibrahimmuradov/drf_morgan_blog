@@ -1,14 +1,19 @@
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
     path('account/', include('account.urls')),
     path('account-api/', include('account.api.urls')),
-    path('blog-api/', include('blog.api.urls')),
+    # path('blog-api/', include('blog.api.urls')),
     path('contact-api/', include('contact.api.urls'))
 ]
+
+urlpatterns += i18n_patterns(
+    path('blog-api/', include('blog.api.urls')),
+)
 
 
 from django.conf import settings

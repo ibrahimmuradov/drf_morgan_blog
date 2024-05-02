@@ -3,6 +3,8 @@ from mptt.admin import MPTTModelAdmin
 from .models import Blog, BlogImage, Tag, Category, Comment
 from django import forms
 from django.core.exceptions import ValidationError
+from modeltranslation.admin import TranslationAdmin
+
 
 class ImageInlineFormSet(forms.models.BaseInlineFormSet):
     def clean(self):
@@ -15,21 +17,20 @@ class ImageInlineFormSet(forms.models.BaseInlineFormSet):
 
         super().clean()
 
+
 class ImageInline(admin.TabularInline):
     model = BlogImage
     extra = 1
     formset = ImageInlineFormSet
 
-class BlogAdmin(admin.ModelAdmin):
+
+class BlogAdmin(TranslationAdmin):
     readonly_fields = ('user_admin', 'view_count',)
     inlines = (ImageInline,)
 
+
 admin.site.register(Blog, BlogAdmin)
-
 admin.site.register(BlogImage)
-
 admin.site.register(Category, MPTTModelAdmin)
-
 admin.site.register(Tag)
-
 admin.site.register(Comment, MPTTModelAdmin)
